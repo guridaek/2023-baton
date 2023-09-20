@@ -1,17 +1,29 @@
+<<<<<<< HEAD
 import { getRequest } from '@/api/fetch';
+=======
+>>>>>>> dev/FE
 import TechLabel from '@/components/TechLabel/TechLabel';
 import Avatar from '@/components/common/Avatar/Avatar';
 import Button from '@/components/common/Button/Button';
 import Layout from '@/layout/Layout';
 import { GetSupporterProfileResponse } from '@/types/profile';
+<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from 'react';
+=======
+import React, { useEffect, useState } from 'react';
+>>>>>>> dev/FE
 import { useParams } from 'react-router-dom';
 import { styled } from 'styled-components';
 import githubIcon from '@/assets/github-icon.svg';
 import { GetRunnerPostResponse } from '@/types/runnerPost';
 import RunnerPostItem from '@/components/RunnerPost/RunnerPostItem/RunnerPostItem';
 import { ToastContext } from '@/contexts/ToastContext';
+<<<<<<< HEAD
 import { ERROR_TITLE } from '@/constants/message';
+=======
+import { useFetch } from '@/hooks/useFetch';
+import useViewport from '@/hooks/useViewport';
+>>>>>>> dev/FE
 
 const SupporterProfilePage = () => {
   const [supporterProfile, setSupporterProfile] = useState<GetSupporterProfileResponse | null>(null);
@@ -19,7 +31,13 @@ const SupporterProfilePage = () => {
 
   const { supporterId } = useParams();
 
+<<<<<<< HEAD
   const { showErrorToast } = useContext(ToastContext);
+=======
+  const { getRequest } = useFetch();
+
+  const { isMobile } = useViewport();
+>>>>>>> dev/FE
 
   useEffect(() => {
     getProfile();
@@ -27,6 +45,7 @@ const SupporterProfilePage = () => {
   }, [supporterId]);
 
   const getProfile = () => {
+<<<<<<< HEAD
     getRequest(`/profile/supporter/${supporterId}`)
       .then(async (response) => {
         const data: GetSupporterProfileResponse = await response.json();
@@ -44,6 +63,28 @@ const SupporterProfilePage = () => {
         setSupporterProfilePost(data);
       })
       .catch((error: Error) => showErrorToast({ description: error.message, title: ERROR_TITLE.REQUEST }));
+=======
+    getRequest(`/profile/supporter/${supporterId}`, async (response) => {
+      const data: GetSupporterProfileResponse = await response.json();
+
+      setSupporterProfile(data);
+    });
+  };
+
+  const getPost = async () => {
+    if (supporterId === undefined || typeof Number(supporterId) !== 'number') return;
+
+    const params = new URLSearchParams([
+      ['supporterId', supporterId],
+      ['reviewStatus', 'DONE'],
+    ]);
+
+    getRequest(`/posts/runner/search?${params.toString()}`, async (response) => {
+      const data: GetRunnerPostResponse = await response.json();
+
+      setSupporterProfilePost(data);
+    });
+>>>>>>> dev/FE
   };
 
   return (
@@ -69,20 +110,38 @@ const SupporterProfilePage = () => {
 
       <S.IntroductionContainer>
         <S.Introduction>{supporterProfile?.introduction}</S.Introduction>
+<<<<<<< HEAD
         <Button width="127px" height="43px" colorTheme="BLACK" fontWeight={700}>
           <S.Anchor href={supporterProfile?.githubUrl} target="_blank">
             <img src={githubIcon} />
             <S.GoToGitHub>Github</S.GoToGitHub>
           </S.Anchor>
         </Button>
+=======
+        <S.GithubButtonWrapper>
+          <Button fontSize={isMobile ? '16px' : '20px'} width="127px" height="43px" colorTheme="BLACK" fontWeight={700}>
+            <S.Anchor href={supporterProfile?.githubUrl} target="_blank">
+              <img src={githubIcon} />
+              <S.GoToGitHub>Github</S.GoToGitHub>
+            </S.Anchor>
+          </Button>
+        </S.GithubButtonWrapper>
+>>>>>>> dev/FE
       </S.IntroductionContainer>
 
       <S.ReviewCountWrapper>
         <S.ReviewCountTitle>완료된 리뷰</S.ReviewCountTitle>
+<<<<<<< HEAD
         <S.ReviewCount>{supporterProfilePost?.data.length}</S.ReviewCount>
       </S.ReviewCountWrapper>
       <S.PostsContainer>
         {supporterProfilePost?.data.map((runnerPostData) => (
+=======
+        <S.ReviewCount>{supporterProfilePost?.data?.length}</S.ReviewCount>
+      </S.ReviewCountWrapper>
+      <S.PostsContainer>
+        {supporterProfilePost?.data?.map((runnerPostData) => (
+>>>>>>> dev/FE
           <RunnerPostItem key={runnerPostData.runnerPostId} runnerPostData={runnerPostData} />
         ))}
       </S.PostsContainer>
@@ -99,6 +158,13 @@ const S = {
     align-items: flex-start;
 
     padding: 50px 0;
+<<<<<<< HEAD
+=======
+
+    @media (min-width: 768px) {
+      padding: 50px 20px;
+    }
+>>>>>>> dev/FE
   `,
 
   InfoContainer: styled.div`
@@ -117,10 +183,24 @@ const S = {
   Name: styled.div`
     font-size: 26px;
     font-weight: 700;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+>>>>>>> dev/FE
   `,
 
   Company: styled.div`
     font-size: 18px;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+>>>>>>> dev/FE
   `,
   TechLabel: styled.div`
     display: flex;
@@ -154,6 +234,16 @@ const S = {
 
     padding: 0 10px;
     margin-bottom: 80px;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 40px;
+    }
+>>>>>>> dev/FE
   `,
 
   Introduction: styled.div`
@@ -181,6 +271,23 @@ const S = {
     line-height: 1.8;
 
     white-space: pre-line;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      width: calc(75% + 40px);
+
+      font-size: 14px;
+    }
+  `,
+
+  GithubButtonWrapper: styled.div`
+    margin-left: auto;
+
+    @media (max-width: 768px) {
+      padding: 20px 0;
+    }
+>>>>>>> dev/FE
   `,
 
   Anchor: styled.a`
@@ -197,21 +304,49 @@ const S = {
     flex-direction: column;
     align-items: center;
     gap: 30px;
+<<<<<<< HEAD
+=======
+
+    @media (min-width: 768px) {
+      padding: 0 20px;
+    }
+>>>>>>> dev/FE
   `,
 
   ReviewCountWrapper: styled.div`
     display: flex;
     align-items: center;
     margin: 0 0 40px 20px;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      margin: 0 0 25px 5px;
+    }
+>>>>>>> dev/FE
   `,
 
   ReviewCountTitle: styled.span`
     font-size: 30px;
     margin-right: 15px;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+>>>>>>> dev/FE
   `,
 
   ReviewCount: styled.span`
     font-size: 40px;
     font-weight: 700;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+>>>>>>> dev/FE
   `,
 };

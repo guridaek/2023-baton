@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ACCESS_TOKEN_LOCAL_STORAGE_KEY } from '@/constants';
 import { useToken } from '@/hooks/useToken';
 import { usePageRouter } from '@/hooks/usePageRouter';
@@ -6,6 +7,15 @@ import { useLocation } from 'react-router-dom';
 import { getRequest } from '@/api/fetch';
 import { ToastContext } from '@/contexts/ToastContext';
 import { ERROR_DESCRIPTION, ERROR_TITLE, TOAST_ERROR_MESSAGE } from '@/constants/message';
+=======
+import { usePageRouter } from '@/hooks/usePageRouter';
+import React, { useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { ToastContext } from '@/contexts/ToastContext';
+import { TOAST_ERROR_MESSAGE } from '@/constants/message';
+import { useLogin } from '@/hooks/useLogin';
+import LoadingPage from './LoadingPage';
+>>>>>>> dev/FE
 
 function GithubCallbackPage() {
   const location = useLocation();
@@ -13,7 +23,11 @@ function GithubCallbackPage() {
   const { showErrorToast } = useContext(ToastContext);
 
   const { goToMainPage, goToLoginPage } = usePageRouter();
+<<<<<<< HEAD
   const { saveToken } = useToken();
+=======
+  const { login } = useLogin();
+>>>>>>> dev/FE
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -27,6 +41,7 @@ function GithubCallbackPage() {
     }
 
     if (code) {
+<<<<<<< HEAD
       getToken(code);
     }
   }, [location]);
@@ -56,6 +71,15 @@ function GithubCallbackPage() {
   };
 
   return <div>GithubRedirect...</div>;
+=======
+      login(code).then(() => {
+        goToMainPage();
+      });
+    }
+  }, [location]);
+
+  return <LoadingPage />;
+>>>>>>> dev/FE
 }
 
 export default GithubCallbackPage;

@@ -29,6 +29,10 @@ const S = {
     $height?: string | number;
     $fontSize?: string | number;
     $fontWeight?: number;
+<<<<<<< HEAD
+=======
+    $mobileFontSize?: string;
+>>>>>>> dev/FE
   }>`
     ${({ $colorTheme }) => themeStyles[$colorTheme]}
 
@@ -36,13 +40,26 @@ const S = {
     justify-content: center;
     align-items: center;
 
+<<<<<<< HEAD
     width: ${({ $width }) => $width || 'fit-content'};
+=======
+    width: ${({ $width }) => $width};
+>>>>>>> dev/FE
     height: ${({ $height }) => $height || '22px'};
     border-radius: 16px;
     padding: 10px 10px;
 
     font-size: ${({ $fontSize }) => $fontSize || '12px'};
     font-weight: ${({ $fontWeight }) => $fontWeight || '400'};
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      padding: 4px 6px;
+
+      font-size: ${({ $fontSize }) => $fontSize};
+    }
+>>>>>>> dev/FE
   `,
 };
 

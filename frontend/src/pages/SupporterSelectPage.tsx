@@ -23,20 +23,55 @@ const S = {
     flex-direction: column;
     gap: 20px;
 
+<<<<<<< HEAD
     margin: 72px 0 53px 0;
+=======
+    padding: 0 20px;
+    margin: 72px 0 53px 0;
+
+    @media (max-width: 768px) {
+      gap: 15px;
+
+      margin-top: 40px;
+      padding: 0 5px;
+    }
+>>>>>>> dev/FE
   `,
 
   Title: styled.h1`
     font-size: 36px;
     font-weight: 700;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+>>>>>>> dev/FE
   `,
 
   SubTitle: styled.h2`
     font-size: 18px;
     color: var(--gray-500);
+<<<<<<< HEAD
   `,
 
   SupporterListContainer: styled.div``,
+=======
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+  `,
+
+  SupporterListContainer: styled.div`
+    padding: 20px;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+  `,
+>>>>>>> dev/FE
 };
 
 export default SupporterSelectPage;

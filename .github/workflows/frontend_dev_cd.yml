@@ -29,7 +29,13 @@ jobs:
 
       - name: Setup environment variables
         run: |
+<<<<<<< HEAD
           echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_DEV_BASE_URL }}" >> .env
+=======
+          echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_DEV_BASE_URL }}
+          REACT_APP_CHANNELTALK_KEY=${{ secrets.REACT_APP_CHANNELTALK_KEY }}
+          " >> .env
+>>>>>>> dev/FE
 
       - name: Install Dependancies
         run: npm install
@@ -45,7 +51,11 @@ jobs:
 
   deploy:
     needs: build-and-upload
+<<<<<<< HEAD
     runs-on: [self-hosted, Linux, ARM64]
+=======
+    runs-on: [self-hosted, Linux, ARM64, dev]
+>>>>>>> dev/FE
 
     steps:
       - name: Remove previous version app

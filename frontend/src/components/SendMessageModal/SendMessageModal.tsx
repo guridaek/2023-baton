@@ -3,6 +3,10 @@ import { styled } from 'styled-components';
 import Modal from '../common/Modal/Modal';
 import Button from '../common/Button/Button';
 import TextArea from '../Textarea/Textarea';
+<<<<<<< HEAD
+=======
+import useViewport from '@/hooks/useViewport';
+>>>>>>> dev/FE
 
 interface Props {
   messageState: string;
@@ -19,13 +23,24 @@ const SendMessageModal = ({
   closeModal,
   handleClickSendButton,
 }: Props) => {
+<<<<<<< HEAD
   return (
     <Modal width="900px" height="500px" closeModal={closeModal}>
+=======
+  const { isMobile } = useViewport();
+
+  return (
+    <Modal width={isMobile ? '90%' : '900px'} height="500px" closeModal={closeModal}>
+>>>>>>> dev/FE
       <S.SendMessageModalContainer>
         <TextArea
           width="100%"
           height="100%"
+<<<<<<< HEAD
           fontSize="28px"
+=======
+          fontSize={isMobile ? '18px' : '28px'}
+>>>>>>> dev/FE
           lineHeight={1.2}
           maxLength={500}
           padding="0"
@@ -34,10 +49,29 @@ const SendMessageModal = ({
           inputTextState={messageState}
         />
         <S.ButtonContainer>
+<<<<<<< HEAD
           <Button colorTheme="GRAY" fontWeight={700} onClick={closeModal}>
             취소
           </Button>
           <Button colorTheme="WHITE" fontWeight={700} onClick={handleClickSendButton}>
+=======
+          <Button
+            width={isMobile ? '90px' : '180px'}
+            colorTheme="GRAY"
+            fontSize={isMobile ? '12px' : '14px'}
+            fontWeight={700}
+            onClick={closeModal}
+          >
+            취소
+          </Button>
+          <Button
+            width={isMobile ? '90px' : '180px'}
+            colorTheme="WHITE"
+            fontSize={isMobile ? '12px' : '14px'}
+            fontWeight={700}
+            onClick={handleClickSendButton}
+          >
+>>>>>>> dev/FE
             전송
           </Button>
         </S.ButtonContainer>

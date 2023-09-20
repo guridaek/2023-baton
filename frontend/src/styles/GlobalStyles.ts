@@ -19,8 +19,11 @@ ${ResetStyle}
     color: #333333;
   }
   
+<<<<<<< HEAD
   html,
 
+=======
+>>>>>>> dev/FE
   /* Colors *****************************************/
   :root {
     --baton-red: #F64545;
@@ -42,8 +45,11 @@ ${ResetStyle}
 
   #root {
     width: 100%;
+<<<<<<< HEAD
     display: flex;
     justify-content: center;
+=======
+>>>>>>> dev/FE
   }
 
   button{

@@ -88,7 +88,11 @@ export const SpringIcon = (props: React.SVGProps<SVGSVGElement>) => {
 export const JavaIconWhite = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" {...props}>
+<<<<<<< HEAD
       <g fill="none">
+=======
+      <g fill="#ffffff">
+>>>>>>> dev/FE
         <rect width="256" height="256" fill="tra" rx="60"></rect>
         <path
           fill={props.color ?? '#F58219'}

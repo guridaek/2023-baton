@@ -1,13 +1,21 @@
 import letterIcon from '../assets/letter-icon.svg';
+<<<<<<< HEAD
 import { postRequest } from '@/api/fetch';
+=======
+>>>>>>> dev/FE
 import CheckBox from '@/components/CheckBox/CheckBox';
 import ReviewTypeButton from '@/components/ReviewTypeButton/ReviewTypeButton';
 import Button from '@/components/common/Button/Button';
 import { DESCRIPTION_OPTIONS_BAD, DESCRIPTION_OPTIONS_GOOD, REVIEW_TYPE_OPTIONS } from '@/constants/feedback';
 import { ERROR_DESCRIPTION, ERROR_TITLE, TOAST_COMPLETION_MESSAGE } from '@/constants/message';
 import { ToastContext } from '@/contexts/ToastContext';
+<<<<<<< HEAD
 import { usePageRouter } from '@/hooks/usePageRouter';
 import { useToken } from '@/hooks/useToken';
+=======
+import { useFetch } from '@/hooks/useFetch';
+import { usePageRouter } from '@/hooks/usePageRouter';
+>>>>>>> dev/FE
 import Layout from '@/layout/Layout';
 import { DescriptionOptions, PostFeedbackRequest, ReviewType, ReviewTypeOptions } from '@/types/feedback';
 import React, { useContext, useEffect, useState } from 'react';
@@ -17,7 +25,11 @@ import { styled } from 'styled-components';
 const SupporterFeedbackPage = () => {
   const { runnerPostId, supporterId } = useParams();
 
+<<<<<<< HEAD
   const { getToken } = useToken();
+=======
+  const { postRequestWithAuth } = useFetch();
+>>>>>>> dev/FE
 
   const { goToMyPage } = usePageRouter();
 
@@ -75,6 +87,7 @@ const SupporterFeedbackPage = () => {
   };
 
   const postSupporterProfile = async (feedback: PostFeedbackRequest) => {
+<<<<<<< HEAD
     const token = getToken()?.value;
     if (!token) return;
 
@@ -83,6 +96,17 @@ const SupporterFeedbackPage = () => {
     postRequest(`/feedback/supporter`, authorization, body)
       .then(() => showCompletionToast(TOAST_COMPLETION_MESSAGE.SUBMIT_FEEDBACK))
       .catch((error) => showErrorToast({ description: error.message, title: ERROR_TITLE.REQUEST }));
+=======
+    const body = JSON.stringify(feedback);
+
+    postRequestWithAuth(
+      `/feedback/supporter`,
+      async () => {
+        showCompletionToast(TOAST_COMPLETION_MESSAGE.SUBMIT_FEEDBACK);
+      },
+      body,
+    );
+>>>>>>> dev/FE
   };
 
   const validateIds = () => {
@@ -111,8 +135,11 @@ const SupporterFeedbackPage = () => {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     getToken();
 
+=======
+>>>>>>> dev/FE
     try {
       validateIds();
     } catch (error) {

@@ -24,6 +24,13 @@ const S = {
 
     li:not(:last-child) {
       margin-right: 10px;
+<<<<<<< HEAD
+=======
+
+      @media (max-width: 768px) {
+        margin-right: 5px;
+      }
+>>>>>>> dev/FE
     }
   `,
 };

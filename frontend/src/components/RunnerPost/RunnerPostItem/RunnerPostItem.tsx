@@ -7,12 +7,21 @@ import Label from '@/components/common/Label/Label';
 import { REVIEW_STATUS_LABEL_TEXT } from '@/constants';
 import eyeIcon from '@/assets/eye-icon.svg';
 import applicantIcon from '@/assets/applicant-icon.svg';
+<<<<<<< HEAD
+=======
+import useViewport from '@/hooks/useViewport';
+>>>>>>> dev/FE
 
 const RunnerPostItem = ({
   runnerPostData: { runnerPostId, title, deadline, tags, runnerProfile, watchedCount, applicantCount, reviewStatus },
 }: {
   runnerPostData: RunnerPost;
 }) => {
+<<<<<<< HEAD
+=======
+  const { isMobile } = useViewport();
+
+>>>>>>> dev/FE
   const { goToRunnerPostPage } = usePageRouter();
 
   const handlePostClick = () => {
@@ -26,7 +35,13 @@ const RunnerPostItem = ({
         <S.DeadLineContainer>
           <S.DeadLine>{deadline.replace('T', ' ')} 까지</S.DeadLine>
           <Label
+<<<<<<< HEAD
             colorTheme={reviewStatus === 'NOT_STARTED' ? 'WHITE' : reviewStatus === 'IN_PROGRESS' ? 'RED' : 'GRAY'}
+=======
+            height={isMobile ? '18px' : '22px'}
+            colorTheme={reviewStatus === 'NOT_STARTED' ? 'WHITE' : reviewStatus === 'IN_PROGRESS' ? 'RED' : 'GRAY'}
+            fontSize={isMobile ? '10px' : ''}
+>>>>>>> dev/FE
           >
             {REVIEW_STATUS_LABEL_TEXT[reviewStatus]}
           </Label>
@@ -41,7 +56,15 @@ const RunnerPostItem = ({
         {runnerProfile ? (
           <>
             <S.ProfileContainer>
+<<<<<<< HEAD
               <Avatar width="50px" height="50px" imageUrl={runnerProfile.imageUrl} />
+=======
+              <Avatar
+                width={isMobile ? '30px' : '50px'}
+                height={isMobile ? '30px' : '50px'}
+                imageUrl={runnerProfile.imageUrl}
+              />
+>>>>>>> dev/FE
               <S.ProfileName>{runnerProfile.name}</S.ProfileName>
             </S.ProfileContainer>
           </>
@@ -66,8 +89,14 @@ const S = {
     display: flex;
     justify-content: space-between;
 
+<<<<<<< HEAD
     width: 1200px;
     height: 206px;
+=======
+    min-width: 340px;
+    width: 100%;
+    height: max-content;
+>>>>>>> dev/FE
     padding: 35px 40px;
 
     border: 0.5px solid var(--gray-500);
@@ -81,6 +110,13 @@ const S = {
       transform: scale(1.015);
       outline: 1.5px solid var(--baton-red);
     }
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      padding: 25px 30px;
+    }
+>>>>>>> dev/FE
   `,
 
   PostTitle: styled.p`
@@ -88,6 +124,13 @@ const S = {
 
     font-size: 28px;
     font-weight: 700;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+>>>>>>> dev/FE
   `,
 
   DeadLineContainer: styled.div`
@@ -100,6 +143,15 @@ const S = {
     margin-bottom: 60px;
 
     color: var(--gray-600);
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      margin-bottom: 40px;
+
+      font-size: 12px;
+    }
+>>>>>>> dev/FE
   `,
 
   TagContainer: styled.div`
@@ -110,9 +162,17 @@ const S = {
       color: var(--gray-600);
     }
   `,
+<<<<<<< HEAD
   Tag: styled.span``,
 
   LeftSideContainer: styled.div``,
+=======
+
+  Tag: styled.span``,
+
+  LeftSideContainer: styled.div``,
+
+>>>>>>> dev/FE
   RightSideContainer: styled.div`
     display: flex;
     flex-direction: column;
@@ -134,6 +194,15 @@ const S = {
 
     font-size: 14px;
     text-align: center;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      min-width: 30px;
+
+      font-size: 12px;
+    }
+>>>>>>> dev/FE
   `,
 
   ChatViewContainer: styled.div`
@@ -154,15 +223,36 @@ const S = {
     & > p {
       color: #a4a4a4;
     }
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      gap: 2px;
+    }
+>>>>>>> dev/FE
   `,
 
   statisticsImage: styled.img`
     width: 20px;
 
     margin-left: 8px;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      width: 15px;
+    }
+>>>>>>> dev/FE
   `,
 
   statisticsText: styled.p`
     font-size: 14px;
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
+>>>>>>> dev/FE
   `,
 };

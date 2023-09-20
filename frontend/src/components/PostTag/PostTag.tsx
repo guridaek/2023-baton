@@ -17,5 +17,12 @@ const S = {
 
     font-size: 18px;
     color: var(--gray-500);
+<<<<<<< HEAD
+=======
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+>>>>>>> dev/FE
   `,
 };

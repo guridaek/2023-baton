@@ -5,7 +5,10 @@ import MainPage from './pages/MainPage';
 import RunnerPostPage from './pages/RunnerPostDetailPage';
 import RunnerPostCreatePage from './pages/RunnerPostCreatePage';
 import LoginPage from './pages/LoginPage';
+<<<<<<< HEAD
 import CreationResultPage from './pages/CreationResultPage';
+=======
+>>>>>>> dev/FE
 import MyPage from './pages/MyPage';
 import GithubCallbackPage from './pages/GithubCallbackPage';
 import ProfileEditPage from './pages/ProfileEditPage';
@@ -13,6 +16,10 @@ import SupporterSelectPage from './pages/SupporterSelectPage';
 import SupporterFeedbackPage from './pages/SupporterFeedbackPage';
 import SupporterProfilePage from './pages/SupporterProfilePage';
 import RunnerProfilePage from './pages/RunnerProfilePage';
+<<<<<<< HEAD
+=======
+import NoticePage from './pages/NoticePage';
+>>>>>>> dev/FE
 
 export const ROUTER_PATH = {
   MAIN: '/',
@@ -22,12 +29,20 @@ export const ROUTER_PATH = {
   MY_PAGE: '/my-page',
   LOGIN: '/login',
   NOT_FOUND: '/*',
+<<<<<<< HEAD
   RESULT: '/result',
+=======
+>>>>>>> dev/FE
   RUNNER_PROFILE: '/runner-profile/:runnerId',
   SUPPORTER_PROFILE: '/supporter-profile/:supporterId',
   PROFILE_EDIT: '/profile-edit',
   SUPPORTER_FEEDBACK: '/supporter-feedback/:runnerPostId/:supporterId',
+<<<<<<< HEAD
   GITHUB_CALLBACK: '/oauth/github/callback', // Authorization callback URL?
+=======
+  GITHUB_CALLBACK: '/oauth/github/callback',
+  NOTICE: '/notice',
+>>>>>>> dev/FE
 };
 
 export const router = createBrowserRouter(
@@ -52,10 +67,13 @@ export const router = createBrowserRouter(
           element: <LoginPage />,
         },
         {
+<<<<<<< HEAD
           path: ROUTER_PATH.RESULT,
           element: <CreationResultPage />,
         },
         {
+=======
+>>>>>>> dev/FE
           path: ROUTER_PATH.MY_PAGE,
           element: <MyPage />,
         },
@@ -80,6 +98,13 @@ export const router = createBrowserRouter(
           path: ROUTER_PATH.SUPPORTER_PROFILE,
           element: <SupporterProfilePage />,
         },
+<<<<<<< HEAD
+=======
+        {
+          path: ROUTER_PATH.NOTICE,
+          element: <NoticePage />,
+        },
+>>>>>>> dev/FE
       ],
     },
   ],

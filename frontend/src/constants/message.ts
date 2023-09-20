@@ -46,6 +46,14 @@ export const TOAST_ERROR_MESSAGE = {
 } as const;
 
 export const TOAST_COMPLETION_MESSAGE = {
+<<<<<<< HEAD
+=======
+  CREATE_POST: {
+    title: '생성 완료',
+    description: '리뷰 요청 글을 생성했어요',
+  },
+
+>>>>>>> dev/FE
   SUBMISSION: {
     title: '제출 완료',
     description: '리뷰 제안을 보냈어요',
@@ -71,13 +79,27 @@ export const TOAST_COMPLETION_MESSAGE = {
     description: '취소를 완료했어요',
   },
 
+<<<<<<< HEAD
   REVIEW_COMPETE: {
+=======
+  REVIEW_COMPLETE: {
+>>>>>>> dev/FE
     title: '리뷰 완료',
     description: '리뷰를 완료했어요',
   },
 
   SUBMIT_FEEDBACK: {
     title: '제출 완료',
+<<<<<<< HEAD
     description: '피드백을 제출했어요'
   }
+=======
+    description: '피드백을 제출했어요',
+  },
+
+  REPO_COMPLETE: {
+    title: '생성 완료',
+    description: '브랜치 생성을 완료했어요',
+  },
+>>>>>>> dev/FE
 };
